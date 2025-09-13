@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MyRead — Online Course Platform (Demo)</title>
+  <meta name="description" content="MyRead: Demo online course platform layout built with HTML, CSS and JavaScript." />
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container" id="app">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden>ES</div>
+        <div>
+          <h1>EduSpark <span class="small">— Frontend Demo</span></h1>
+          <p class="lead">Courses • Instructors • Enrollments (demo)</p>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <button id="themeToggle" class="btn" title="Toggle theme">Toggle Theme</button>
+        <button id="viewEnrollments" class="select" aria-haspopup="dialog">My Enrollments</button>
+      </div>
+    </header>
+
+    <div class="controls">
+      <div class="search" role="search" aria-label="Search courses">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
+          <path d="M21 21l-4.35-4.35" stroke="#9aa6b2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="11" cy="11" r="6" stroke="#9aa6b2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Search courses or instructors..." />
+      </div>
+      <select id="categoryFilter" class="select" aria-label="Filter by category">
+        <option value="all">All categories</option>
+        <option value="web">Web Development</option>
+        <option value="data">Data Analytics</option>
+        <option value="ml">Machine Learning</option>
+        <option value="design">Design</option>
+      </select>
+      <select id="sortBy" class="select" aria-label="Sort courses">
+        <option value="popular">Sort: Popular</option>
+        <option value="newest">Newest</option>
+        <option value="price-low">Price: Low → High</option>
+        <option value="price-high">Price: High → Low</option>
+      </select>
+      <button id="addCourseBtn" class="btn">Add Sample Course</button>
+    </div>
+
+    <main class="grid">
+      <section>
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <h2 style="margin:18px 0 8px">Courses</h2>
+          <p class="muted">Showing <span id="visibleCount">0</span> courses</p>
+        </div>
+
+        <div id="courses" class="courses" aria-live="polite"></div>
+      </section>
+
+      <aside class="sidebar">
+        <div class="card">
+          <h3 style="margin-top:0">Instructors</h3>
+          <div id="instructors" class="instructors"></div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <h3 style="margin-top:0">Enrollment Summary</h3>
+          <div id="enrollmentSummary" class="enrollments"><p class="muted">No enrollments yet.</p></div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      Demo project • Build: HTML / CSS / JavaScript — Deploy on Netlify / Vercel / GitHub Pages
+    </footer>
+  </div>
+
+  <!-- Enrollment modal -->
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" role="document">
+      <button id="closeModal" aria-label="Close" style="float:right;background:transparent;border:0;color:var(--muted);cursor:pointer">✕</button>
+      <h3 id="modalTitle">Enroll — Course Name</h3>
+      <p class="small muted">Fill your details to enroll. This demo stores enrollments in your browser's localStorage.</p>
+      <form id="enrollForm" style="margin-top:12px">
+        <div class="form-row">
+          <div class="field"><label class="small">Full name</label><input id="studentName" type="text" required placeholder="Your name" /></div>
+          <div class="field"><label class="small">Email</label><input id="studentEmail" type="email" required placeholder="you@example.com" /></div>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:10px;align-items:center">
+          <button type="submit" class="btn">Confirm Enrollment</button>
+          <button type="button" id="cancelEnroll" class="select">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
