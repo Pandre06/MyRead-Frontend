@@ -1,0 +1,83 @@
+/* Reset + base */
+:root{
+  --bg:#0f1724; --card:#0b1220; --muted:#9aa6b2; --accent:#7c3aed; --accent-2:#06b6d4; --glass: rgba(255,255,255,0.04);
+  --radius:12px; --glass-2: rgba(255,255,255,0.03);
+  --max-width:1100px;
+  --ff: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:var(--ff);background:linear-gradient(180deg,#071021 0%, #071224 60%);color:#e6eef6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.container{max-width:var(--max-width);margin:36px auto;padding:0 18px}
+
+/* Header */
+header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:white}
+h1{font-size:18px;margin:0}
+p.lead{margin:0;color:var(--muted);font-size:13px}
+
+/* Search/controls */
+.controls{display:flex;align-items:center;gap:12px;margin-top:18px}
+.search{flex:1;display:flex;background:var(--glass);padding:10px;border-radius:12px;align-items:center;gap:8px}
+.search input{background:transparent;border:0;outline:none;color:inherit;font-size:14px;width:100%}
+.select, .btn{background:var(--card);border-radius:10px;padding:10px 14px;color:var(--muted);border:1px solid var(--glass-2)}
+.btn{cursor:pointer;color:white;background:linear-gradient(90deg,var(--accent),#5b21b6);border:none}
+
+/* Grid layout */
+.grid{display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:22px}
+@media (max-width:900px){.grid{grid-template-columns:1fr}}
+
+/* Courses list */
+.courses{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media (max-width:700px){.courses{grid-template-columns:1fr}}
+
+.course{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid var(--glass-2);display:flex;gap:12px;align-items:flex-start}
+.course img{width:120px;height:80px;border-radius:8px;object-fit:cover}
+.course .meta{flex:1}
+.course h3{margin:0;font-size:16px}
+.course p{margin:6px 0;color:var(--muted);font-size:13px}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:12px;padding:6px 8px;background:rgba(255,255,255,0.03);border-radius:999px;color:var(--muted)}
+.course .actions{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.price{font-weight:700}
+
+/* Sidebar: instructors + enrollment summary */
+.sidebar{position:relative}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid var(--glass-2)}
+.instructors{display:flex;flex-direction:column;gap:10px}
+.instructor{display:flex;gap:10px;align-items:center}
+.avatar{width:54px;height:54px;border-radius:10px;flex-shrink:0;object-fit:cover}
+.instructor h4{margin:0;font-size:14px}
+.instructor p{margin:0;color:var(--muted);font-size:12px}
+
+/* enrollment list */
+.enrollments{margin-top:14px}
+.enroll-item{display:flex;justify-content:space-between;gap:8px;padding:8px;border-radius:8px;background:rgba(255,255,255,0.01);font-size:13px}
+
+/* modal */
+.modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:flex;align-items:center;justify-content:center;z-index:60;opacity:0;pointer-events:none;transition:all .18s}
+.modal-backdrop.active{opacity:1;pointer-events:auto}
+.modal{width:100%;max-width:520px;background:#071425;padding:18px;border-radius:14px;border:1px solid var(--glass-2)}
+.modal h3{margin-top:0}
+.form-row{display:flex;gap:10px}
+.form-row .field{flex:1}
+input[type=text], input[type=email], select{width:100%;padding:10px;border-radius:8px;border:1px solid var(--glass-2);background:transparent;color:inherit}
+
+/* micro interactions */
+.small{font-size:12px;color:var(--muted)}
+.muted{color:var(--muted)}
+.pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);font-size:12px}
+
+/* footer */
+footer{margin:36px 0 120px;color:var(--muted);font-size:13px;text-align:center}
+
+/* utility */
+.hidden{display:none}
+.center{display:flex;align-items:center;justify-content:center}
+
+/* accessibility focus */
+button:focus, input:focus, select:focus{outline:3px solid rgba(124,58,237,0.14);outline-offset:2px}
+
+/* small screens polish */
+@media (max-width:480px){.search input{font-size:13px}.brand h1{font-size:16px}}
