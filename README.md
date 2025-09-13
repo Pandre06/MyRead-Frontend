@@ -14,9 +14,4 @@ myread-demo/
 ├── css/
 │   └── styles.css
 ├── js/
-│   └── app.js
-├── assets/
-│   └── images/   (optional local images)
-├── .gitignore
-├── README.md
-└── LICENSE
+    └── app.js
